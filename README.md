@@ -1,7 +1,5 @@
 
-markdown
-Copy
-Edit
+
 # GeoSnapshot Photo Editor
 
 **GeoSnapshot Photo Editor** is a simple web-based photo editing application with AI-powered background removal. Built using React and Flask, the tool allows users to upload images, view them in a gallery, and edit them using smart features like background removal and (optionally) object removal.
@@ -52,17 +50,14 @@ ai-geosnapshot/
 ### How to Run Locally
 
 #1. Start Flask Backend
-bash
-Copy
-Edit
+
+
 cd photo-ai-flask
 python app.py
 Default runs on http://localhost:5001
 
 #2. Start React Frontend
-bash
-Copy
-Edit
+
 cd geosnapshot-front
 npm install
 npm start
@@ -92,10 +87,9 @@ react-router-dom
 
 Replicate API key (if used) must be placed in .env file:
 
-env
-Copy
-Edit
+
 REPLICATE_API_TOKEN=your-token-here
+
 📸 Demo Notes
 Since Replicate API (used for object removal) requires billing, the current object removal is simulated using selection and placeholder logic for demo purposes.
 
@@ -109,6 +103,6 @@ Optionally select an area for object removal
 Download the result with one click
 
 🧑‍💻 Author
-Developed by Chris Stone
+Developed by Chris Livingstone
 For project submission / demo purposes.
 Repository maintained at: https://github.com/ChrisSttone/geosnapshot-ai
