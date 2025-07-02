@@ -42,14 +42,16 @@ Edit
 
 ---
 
-## 📂 Folder Structure
+## 📁 Folder Structure
 
-```bash
 ai-geosnapshot/
-├── geosnapshot-front/      # React frontend
-└── photo-ai-flask/         # Flask backend (merged into same repo)
-🚀 How to Run Locally
-1. Start Flask Backend
+├── geosnapshot-front/ # React frontend
+├── photo-ai-flask/ # Flask backend
+
+
+### How to Run Locally
+
+#1. Start Flask Backend
 bash
 Copy
 Edit
@@ -57,7 +59,7 @@ cd photo-ai-flask
 python app.py
 Default runs on http://localhost:5001
 
-2. Start React Frontend
+#2. Start React Frontend
 bash
 Copy
 Edit
@@ -66,7 +68,7 @@ npm install
 npm start
 Opens at http://localhost:3000
 
-📦 Dependencies
+📦Dependencies
 Flask
 flask
 
