@@ -1,8 +1,11 @@
+# 🌍 GeoSnapshot Photo Editor
 
+**GeoSnapshot Photo Editor** is a simple web-based photo editing application with AI-powered features. Built using **React** and **Flask**, this tool allows users to:
 
-# GeoSnapshot Photo Editor
-
-**GeoSnapshot Photo Editor** is a simple web-based photo editing application with AI-powered background removal. Built using React and Flask, the tool allows users to upload images, view them in a gallery, and edit them using smart features like background removal and (optionally) object removal.
+- Upload and manage photos
+- Automatically remove image backgrounds
+- Manually erase objects from photos
+- Extract individuals from group photos using AI (YOLOv8 + SAM)
 
 ---
 
@@ -10,33 +13,35 @@
 
 - 📸 **Image Upload & Gallery View**
 - 🖼️ **Background Removal** (powered by `rembg`)
-- ❌ **Object Removal** *(currently under testing / demo-ready only)*
-- 🧰 **Basic Editor Interface**
-  - Manual selection tool for object areas
-  - Download edited images
-- ⚡ **Clean UI with Animations**
-  - Frontend styled with basic CSS and animations
-  - Responsive and simple layout
+- ❌ **Object Removal Tool** *(manual selection with inpainting)*
+- 👥 **Group Photo Cutout**
+  - Upload a group image
+  - Automatically detect and cut out each person
+  - Download individual cutouts
+- ⚡ **Clean UI**
+  - Minimal, responsive layout
+  - Smooth CSS animations
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠️ Tech Stack
 
-### Frontend (React)
+### 🔹 Frontend (React)
 
 - React.js
 - React Router DOM
-- Axios (for API requests)
-- CSS Animations
-- Optionally supports Tailwind/Sakura UI for styling
+- Axios (for communicating with Flask)
+- Vanilla CSS (animations, layout)
 
-### Backend (Flask)
 
-- Python Flask (API server)
+### 🔹 Backend (Flask)
+
+- Flask (Python API server)
 - `rembg` for background removal
-- OpenCV and NumPy (for selection/masking)
-- CORS-enabled API endpoints
-- (Optional) Replicate API — commented out as fallback due to billing
+- OpenCV & NumPy for object masking and editing (not accurate)
+- YOLOv8 + SAM for cutout detection (person segmentation)
+- Flask-CORS
+- `.env` for secret keys and tokens
 
 ---
 
@@ -46,25 +51,30 @@ ai-geosnapshot/
 ├── geosnapshot-front/ # React frontend
 ├── photo-ai-flask/ # Flask backend
 
+yaml
+Copy
+Edit
 
-### How to Run Locally
+---
 
-#1. Start Flask Backend
+## 🚀 How to Run Locally
 
+### 1️⃣ Start Flask Backend
 
+```bash
 cd photo-ai-flask
 python app.py
-Default runs on http://localhost:5001
-
-#2. Start React Frontend
-
+# Runs on http://localhost:5001
+2️⃣ Start React Frontend
+bash
+Copy
+Edit
 cd geosnapshot-front
 npm install
 npm start
-Opens at http://localhost:3000
-
-📦Dependencies
-Flask
+# Opens at http://localhost:3000
+📦 Dependencies
+Backend
 flask
 
 flask-cors
@@ -77,32 +87,44 @@ numpy
 
 python-dotenv
 
-React
+ultralytics (for YOLOv8)
+
+segment_anything (Meta's SAM)
+
+Frontend
 axios
 
 react-router-dom
 
-🔒 Note on Security
-.env file is excluded from GitHub for security reasons.
+🔒 Security Notes
+.env file is excluded from version control.
 
-Replicate API key (if used) must be placed in .env file:
+To use advanced features like Replicate (optional), create a .env file in photo-ai-flask/ and add:
 
-
+env
+Copy
+Edit
 REPLICATE_API_TOKEN=your-token-here
+📸 Demo Instructions
+Upload an image
 
-📸 Demo Notes
-Since Replicate API (used for object removal) requires billing, the current object removal is simulated using selection and placeholder logic for demo purposes.
+Remove background using rembg
 
-📥 Output Example
-Users can upload an image
+(Optional) Select and remove objects manually
 
-Remove the background
+Try "Group Photo Cutout" to automatically extract people
 
-Optionally select an area for object removal
+Download results with one click
 
-Download the result with one click
+⚠️ Note on Large Files
+To avoid GitHub’s 100MB limit:
 
-🧑‍💻 Author
+Haven't uploaded large models (.pth, .weights, .dll, etc.) to the repo. These need to be downloaded at runtime.
+
+
+
+👨‍💻 Author
 Developed by Chris Livingstone
-For project submission / demo purposes.
-Repository maintained at: https://github.com/ChrisSttone/geosnapshot-ai
+For academic submission and demonstration purposes.
+
+📦 GitHub Repository: https://github.com/ChrisSttone/geosnapshot-ai
