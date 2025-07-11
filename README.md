@@ -51,9 +51,6 @@ ai-geosnapshot/
 ├── geosnapshot-front/ # React frontend
 ├── photo-ai-flask/ # Flask backend
 
-yaml
-Copy
-Edit
 
 ---
 
@@ -61,14 +58,12 @@ Edit
 
 ### 1️⃣ Start Flask Backend
 
-```bash
+
 cd photo-ai-flask
 python app.py
 # Runs on http://localhost:5001
 2️⃣ Start React Frontend
-bash
-Copy
-Edit
+
 cd geosnapshot-front
 npm install
 npm start
@@ -101,9 +96,7 @@ react-router-dom
 
 To use advanced features like Replicate (optional), create a .env file in photo-ai-flask/ and add:
 
-env
-Copy
-Edit
+
 REPLICATE_API_TOKEN=your-token-here
 📸 Demo Instructions
 Upload an image
